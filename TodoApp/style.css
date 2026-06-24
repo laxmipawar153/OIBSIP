@@ -1,0 +1,81 @@
+body{
+font-family:'Poppins', sans-serif;
+margin:0;
+background:#eef2ff;
+display:flex;
+justify-content:center;
+padding:30px;
+}
+
+.container{
+width:800px;
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+h1{
+text-align:center;
+color:#1e3a8a;
+}
+
+.input-section{
+display:flex;
+gap:10px;
+margin-bottom:20px;
+}
+
+input{
+flex:1;
+padding:10px;
+border:1px solid #ccc;
+border-radius:8px;
+}
+
+button{
+padding:10px 15px;
+border:none;
+background:#2563eb;
+color:white;
+border-radius:8px;
+cursor:pointer;
+}
+
+.lists{
+display:flex;
+gap:20px;
+}
+
+.list{
+flex:1;
+background:#f8fafc;
+padding:10px;
+border-radius:10px;
+}
+
+ul{
+list-style:none;
+padding:0;
+}
+
+li{
+background:white;
+margin:10px 0;
+padding:10px;
+border-radius:8px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.task-text{
+flex:1;
+}
+
+.actions button{
+margin-left:5px;
+padding:5px 8px;
+font-size:12px;
+}
