@@ -1,0 +1,163 @@
+/* Reset */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    line-height:1.6;
+}
+
+/* Navbar */
+
+.navbar{
+    position:sticky;
+    top:0;
+    background:#0f172a;
+    color:white;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:15px 40px;
+    z-index:1000;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+}
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    gap:20px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+}
+
+/* Hero */
+
+.hero{
+    min-height:90vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    background:linear-gradient(
+    135deg,
+    #2563eb,
+    #3b82f6
+    );
+
+    color:white;
+
+    padding:20px;
+}
+
+.hero h1{
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:1.2rem;
+    margin-bottom:20px;
+}
+
+.hero button{
+    background:white;
+    color:#2563eb;
+
+    border:none;
+    padding:12px 25px;
+    border-radius:5px;
+
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* Features */
+
+.features{
+    padding:60px 20px;
+    text-align:center;
+}
+
+.features h2{
+    font-size:2rem;
+    margin-bottom:30px;
+}
+
+.feature-container{
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:#f4f4f4;
+    padding:25px;
+    width:280px;
+    border-radius:10px;
+}
+
+/* About */
+
+.about{
+    padding:60px 20px;
+    text-align:center;
+    background:#eaf2ff;
+}
+
+.about h2{
+    margin-bottom:20px;
+}
+
+/* Footer */
+
+footer{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+.social-links{
+    margin-top:10px;
+}
+
+.social-links a{
+    color:white;
+    text-decoration:none;
+    margin:0 10px;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .hero h1{
+        font-size:2rem;
+    }
+
+    .hero p{
+        font-size:1rem;
+    }
+}
