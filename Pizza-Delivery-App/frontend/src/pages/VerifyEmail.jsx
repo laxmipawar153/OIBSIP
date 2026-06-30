@@ -11,9 +11,7 @@ export default function VerifyEmail() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-
     verifyEmail();
-
   }, []);
 
   const verifyEmail = async () => {
@@ -25,12 +23,12 @@ export default function VerifyEmail() {
       setSuccess(true);
       setMessage(res.data.message);
 
-    } catch (error) {
+    } catch (err) {
 
       setSuccess(false);
 
       setMessage(
-        error.response?.data?.message ||
+        err.response?.data?.message ||
         "Verification Failed"
       );
 
@@ -42,62 +40,51 @@ export default function VerifyEmail() {
 
   };
 
+  if (loading) {
+
+    return (
+
+      <div className="flex justify-center items-center min-h-screen">
+
+        <h1 className="text-2xl font-bold">
+          Verifying Email...
+        </h1>
+
+      </div>
+
+    );
+
+  }
+
   return (
 
-    <div className="flex items-center justify-center min-h-[70vh]">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100">
 
-      <div className="bg-white shadow-xl rounded-xl p-10 text-center w-[420px]">
+      <div className="bg-white shadow-xl rounded-xl p-8 max-w-md text-center">
 
-        {loading ? (
+        <h1 className="text-3xl font-bold mb-5">
 
-          <>
-            <h1 className="text-3xl font-bold">
-              Verifying...
-            </h1>
-          </>
+          {success ? "✅ Success" : "❌ Failed"}
 
-        ) : success ? (
+        </h1>
 
-          <>
-            <div className="text-6xl mb-4">
-              ✅
-            </div>
+        <p className="mb-6">
 
-            <h1 className="text-3xl font-bold text-green-600">
-              Email Verified
-            </h1>
+          {message}
 
-            <p className="mt-3 text-gray-600">
-              {message}
-            </p>
+        </p>
 
-            <Link
-              to="/login"
-              className="inline-block mt-6 bg-orange-600 text-white px-6 py-3 rounded-lg"
-            >
-              Login Now
-            </Link>
+        <Link
 
-          </>
+          to="/login"
 
-        ) : (
+          className="bg-orange-600 text-white px-6 py-3 rounded-lg"
 
-          <>
-            <div className="text-6xl mb-4">
-              ❌
-            </div>
+        >
 
-            <h1 className="text-3xl font-bold text-red-600">
-              Verification Failed
-            </h1>
+          Go To Login
 
-            <p className="mt-3 text-gray-600">
-              {message}
-            </p>
-
-          </>
-
-        )}
+        </Link>
 
       </div>
 

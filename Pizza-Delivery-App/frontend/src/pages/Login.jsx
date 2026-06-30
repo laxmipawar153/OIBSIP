@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 
 export default function Login() {
 
@@ -50,18 +50,33 @@ export default function Login() {
           type="email"
           placeholder="Email"
           className="w-full border p-3 rounded"
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
 
         <input
           type="password"
           placeholder="Password"
           className="w-full border p-3 rounded"
+          value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
 
+        <div className="text-right">
+
+          <Link
+            to="/forgot-password"
+            className="text-orange-600 hover:underline text-sm"
+          >
+            Forgot Password?
+          </Link>
+
+        </div>
+
         <button
-          className="w-full bg-orange-600 text-white py-3 rounded-lg"
+          className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-lg"
         >
           Login
         </button>

@@ -48,9 +48,11 @@ mongoose
   //  "🎉 Congratulations! Your Node.js email setup is working."
 //);
 
-    app.listen(process.env.PORT || 5000, () => {
-      console.log("Server running on port 5000");
-    });
+    const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
+});
   })
   .catch((err) => {
     console.log("DB connection error:", err.message);

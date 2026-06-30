@@ -18,6 +18,8 @@ import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 import Checkout from "./pages/Checkout";
 import VerifyEmail from "./pages/VerifyEmail";
+import ResetPassword from "./pages/ResetPassword";
+import ForgotPassword from "./pages/ForgotPassword";
 
 
 
@@ -79,6 +81,20 @@ function App() {
       <Admin />
     </AdminRoute>
   }
+/>
+<Route
+  path="/verify-email/:token"
+  element={<VerifyEmail />}
+/>
+
+<Route
+  path="/forgot-password"
+  element={<ForgotPassword />}
+/>
+
+<Route
+  path="/reset-password/:token"
+  element={<ResetPassword />}
 />
           <Route path="*" element={<NotFound />} />
         </Routes>
