@@ -1,6 +1,3 @@
-const dns = require("dns");
-dns.setDefaultResultOrder("ipv4first");
-
 const nodemailer = require("nodemailer");
 
 const sendEmail = async (to, subject, html) => {
@@ -9,31 +6,25 @@ const sendEmail = async (to, subject, html) => {
 
     const transporter = nodemailer.createTransport({
 
-  host: "smtp.gmail.com",
+      host: "smtp-relay.brevo.com",
 
-  port: 587,
+      port: 587,
 
-  secure: false,
+      secure: false,
 
-  auth: {
+      auth: {
 
-    user: process.env.EMAIL_USER,
+        user: process.env.EMAIL_USER,
 
-    pass: process.env.EMAIL_PASS,
+        pass: process.env.EMAIL_PASS,
 
-  },
+      },
 
-  tls: {
-
-    rejectUnauthorized: false,
-
-  },
-
-});
+    });
 
     await transporter.sendMail({
 
-      from: process.env.EMAIL_USER,
+      from: `"PizzaHub 🍕" <${process.env.EMAIL_USER}>`,
 
       to,
 
@@ -47,7 +38,7 @@ const sendEmail = async (to, subject, html) => {
 
   } catch (error) {
 
-    console.log("Email Error:", error.message);
+    console.log("Email Error:", error);
 
   }
 
