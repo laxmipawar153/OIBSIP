@@ -1,44 +1,68 @@
-const nodemailer = require("nodemailer");
+const axios = require("axios");
 
 const sendEmail = async (to, subject, html) => {
 
   try {
 
-    const transporter = nodemailer.createTransport({
+    const response = await axios.post(
 
-      host: "smtp-relay.brevo.com",
+      "https://api.brevo.com/v3/smtp/email",
 
-      port: 587,
+      {
 
-      secure: false,
+        sender: {
 
-      auth: {
+          name: "PizzaHub 🍕",
 
-        user: process.env.EMAIL_USER,
+          email: process.env.EMAIL_USER,
 
-        pass: process.env.EMAIL_PASS,
+        },
+
+        to: [
+
+          {
+
+            email: to,
+
+          },
+
+        ],
+
+        subject,
+
+        htmlContent: html,
 
       },
 
-    });
+      {
 
-    await transporter.sendMail({
+        headers: {
 
-      from: `"PizzaHub 🍕" <${process.env.EMAIL_USER}>`,
+          accept: "application/json",
 
-      to,
+          "api-key": process.env.BREVO_API_KEY,
 
-      subject,
+          "content-type": "application/json",
 
-      html,
+        },
 
-    });
+      }
+
+    );
 
     console.log("✅ Email Sent Successfully");
 
+    console.log(response.data);
+
   } catch (error) {
 
-    console.log("Email Error:", error);
+    console.log("❌ Brevo Error");
+
+    console.log(
+
+      error.response?.data || error.message
+
+    );
 
   }
 
